@@ -17,6 +17,11 @@ export default class TampermonkeyWebpackPlugin {
         if (!fs.existsSync(headerFile)) {
             throw new Error(`No Such File : ${headerFile}`);
         }
+        compiler.hooks.compilation.tap(self.name,(compilation)=>{
+            //添加编译依赖
+            compilation.compilationDependencies.add(headerFile)
+        });
+
         compiler.hooks.emit.tap(self.name, (compilation) => {
             self.readHeader();
             const entry=compilation.entrypoints.get(entryName);

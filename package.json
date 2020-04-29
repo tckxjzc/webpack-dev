@@ -1,12 +1,12 @@
 {
-  "name": "tz-template",
+  "name": "webpack-dev",
   "version": "1.0.0",
-  "description": "template of work",
+  "description": "webpack 插件开发学习",
   "engines": {
     "node": ">=14.0.0"
   },
   "scripts": {
-    "dev-server": "nodemon --watch plugins --watch script --exec 'node ./script/bin/devServer.js  -p 8088 -e index --hash'",
+    "dev-server": "nodemon --watch plugins --watch script --exec 'node ./script/bin/devServer.js  -p 8088 -d -e index'",
     "build": "node ./script/bin/build.js",
     "prods-server": "node ./script/bin/devServer.js -d -p 8088 -e test --static",
     "test": "node ./test/index.js"

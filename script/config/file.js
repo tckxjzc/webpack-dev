@@ -12,7 +12,7 @@ const fileNameEnabledHash = argv.hash;//default is false
 export const output = {
     dist: path.resolve(__dirname, './dist'),
     resource: 'resource',
-    filename: fileNameEnabledHash ? `/[hash].js` : `/[name].js`,
+    filename: fileNameEnabledHash ? `/[hash].user.js` : `/[name].user.js`,
     publicPath: '/'
 };
 

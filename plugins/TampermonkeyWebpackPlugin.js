@@ -1,5 +1,8 @@
 import fs from 'fs';
 
+/**
+ * 为Tampermonkey用的js添加头部信息
+ */
 export default class TampermonkeyWebpackPlugin {
     name = "ConcatWebpackPlugin";
     headerMtime = null;
@@ -23,10 +26,6 @@ export default class TampermonkeyWebpackPlugin {
                 const entries=entryFiles.filter(item=>item.endsWith('.js'));
                 entries.forEach(item=>{
                     const asset=compilation.assets[item];
-                    if(!item.endsWith('.user.js')){
-                        delete compilation.assets[item];
-                        compilation.assets[item.replace(/(\.js)$/,'.user.js')]=asset;
-                    }
 
                     if(asset._source){
                         asset._source.children.splice(0,0,self.header);
